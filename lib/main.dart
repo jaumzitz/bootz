@@ -98,6 +98,9 @@ class LoginPage extends StatelessWidget {
                       decoration: TextDecoration.none),
                 ),
                 const TextField(
+                  obscureText: true,
+                    enableSuggestions: false,
+                    autocorrect: false,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius:
