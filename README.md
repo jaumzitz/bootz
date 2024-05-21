@@ -1,6 +1,12 @@
 # bootz_test
 
-A new Flutter project.
+This is Bootz.
+
+Bootz is an mobile application for trailling comunnity. Bootz is also my graduation project.
+
+Currently in development.
+
+Updates coming soon.
 
 ## Getting Started
 
