@@ -52,10 +52,10 @@ class LoginPage extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       body: Container(
         height: 800,
-        color: Color(0xFFF6F6F6),
+        color: const Color(0xFFF6F6F6),
         child: Form(
           child: Padding(
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -119,7 +119,7 @@ class LoginPage extends StatelessWidget {
                       side: MaterialStatePropertyAll(
                           BorderSide(color: Color(0xFF9CCD62), width: 2)),
                     ),
-                    child: Text('Entrar com e-mail')),
+                    child: const Text('Entrar com e-mail')),
                 const SizedBox(height: 16),
                 Center(
                     child: TextButton(
