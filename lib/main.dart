@@ -83,6 +83,10 @@ class LoginPage extends StatelessWidget {
                       borderRadius: BorderRadius.all(Radius.circular(100)),
                       borderSide:
                           BorderSide(width: 2, style: BorderStyle.none)),
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(100)),
+                      borderSide:
+                          BorderSide(width: 2, color: Color(0xFF9CCD62))),
                   hintText: 'joao@email.com',
                 )),
                 const SizedBox(height: 48),
@@ -95,19 +99,25 @@ class LoginPage extends StatelessWidget {
                 ),
                 const TextField(
                     decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(100)),
-                      borderSide:
-                          BorderSide(width: 2, style: BorderStyle.none)),
-                )),
+                        border: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(100)),
+                            borderSide:
+                                BorderSide(width: 2, style: BorderStyle.none)),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(100)),
+                            borderSide: BorderSide(
+                                width: 2, color: Color(0xFF9CCD62))))),
                 const SizedBox(
-                  height: 16,
+                  height: 32,
                 ),
                 OutlinedButton(
                     onPressed: () {
                       print('Apertou em entrar');
                     },
                     style: const ButtonStyle(
+
                       fixedSize: MaterialStatePropertyAll(Size(400, 56)),
                       textStyle: MaterialStatePropertyAll(
                           TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
