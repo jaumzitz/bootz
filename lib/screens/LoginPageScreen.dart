@@ -1,3 +1,4 @@
+import 'package:bootz_test/screens/RegisterScreen.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
