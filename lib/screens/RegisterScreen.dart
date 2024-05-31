@@ -1,3 +1,4 @@
+import 'package:bootz_test/screens/OTPScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -141,10 +142,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
             ),
             Container(
               alignment: Alignment.bottomCenter,
-              child: const Padding(
+              child: Padding(
                 padding: EdgeInsets.fromLTRB(16, 0, 16, 64.0),
                 child: ElevatedButton(
-                  onPressed: null,
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => OTPScreen()));
+                  },
                   style: ButtonStyle(
                       fixedSize: MaterialStatePropertyAll(Size(400, 56)),
                       textStyle: MaterialStatePropertyAll(

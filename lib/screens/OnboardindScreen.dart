@@ -61,7 +61,8 @@ class OnboardingScreen extends StatelessWidget {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (contextNew) => LoginPage()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => LoginPage()));
                     },
                     style: const ButtonStyle(
                         fixedSize: MaterialStatePropertyAll(Size(400, 56)),
@@ -78,7 +79,9 @@ class OnboardingScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  const Center(child: TextButton(onPressed: null, child: Text('Termos de uso')))
+                  const Center(
+                      child: TextButton(
+                          onPressed: null, child: Text('Termos de uso')))
                 ],
               ),
             ),
