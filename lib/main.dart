@@ -1,5 +1,6 @@
 import 'package:bootz_test/screens/CreateProfileScreen.dart';
 import 'package:bootz_test/screens/DefinePasswordScreen.dart';
+import 'package:bootz_test/screens/HomeScreen.dart';
 import 'package:bootz_test/screens/OTPScreen.dart';
 import 'package:bootz_test/screens/RegisterScreen.dart';
 import 'package:bootz_test/screens/OnboardindScreen.dart';
@@ -37,11 +38,12 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       // home: const LoginPage(),
-      home: const OnboardingScreen(),
+      // home: const OnboardingScreen(),
       // home: const RegisterScreen(),
       // home: const OTPScreen(),
       // home: const CreateProfileScreen(),
       // home: DefinePasswordScreen(),
+      home: HomeScreen(),
     );
 
 
