@@ -8,104 +8,206 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          children: [
-            Expanded(
-              child: TextField(
-                decoration: InputDecoration(
-                  suffixIcon: Icon(Icons.search),
-                  hintText: 'Buscar uma localizacão',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(160),
+    return DefaultTabController(
+      length: 4,
+      child: Scaffold(
+        bottomNavigationBar: PreferredSize(
+          preferredSize: Size.fromHeight(2.0),
+          child: TabBar(
+            tabs: [
+              Tab(icon: Icon(Icons.home)),
+              Tab(icon: Icon(Icons.explore)),
+              Tab(icon: Icon(Icons.favorite_border)),
+              Tab(icon: Icon(Icons.account_circle)),
+            ],
+            labelColor: Colors.black,
+            indicator: BoxDecoration(),
+          
+          ),
+        ),
+        appBar: AppBar(
+          toolbarHeight: 120,
+          title: Column(
+
+            children: [
+              Row(
+
+                children: [
+                  Expanded(
+                    child: TextField(
+                      decoration: InputDecoration(
+                        suffixIcon: Icon(Icons.search),
+                        hintText: 'Buscar uma localização',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(160),
+                        ),
+                      ),
+                    ),
                   ),
+                  SizedBox(width: 10),
+                  Image.asset(
+                    'assets/images/sun.png',
+                    width: 50,
+                    height: 50,
+                  ),
+                ],
+              ),
+              SizedBox(height: 16,),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Wrap(
+                  spacing: 8,
+                  children: [
+                    _buildChoiceChip('Bike'),
+                    _buildChoiceChip('Corrida'),
+                    _buildChoiceChip('Escalada'),
+                    _buildChoiceChip('Camping'),
+                    _buildChoiceChip('Praia'),
+                    _buildChoiceChip('Cachoeira'),
+                  ],
                 ),
               ),
-            ),
-            SizedBox(width: 10),
-            Image.asset(
-              'assets/images/sun.png',
-              width: 50,
-              height: 50,
-            ),
-          ],
-        ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Row(
+            ],
+          ),
 
+        ),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
+
+                SizedBox(height: 16),
+                const Text(
+                  'Para você',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black87,
+                      decoration: TextDecoration.none),
+                ),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
-
                   child: Wrap(
                     spacing: 8,
-
                     children: [
-
-
-                      ChoiceChip(
-                        label: Text('Bike'),
-                        selected: false,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(160)),
-                      ),
-                      ChoiceChip(
-                        label: Text('Corrida'),
-                        selected: false,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(160)),
-                      ),
-                      ChoiceChip(
-                        label: Text('Escalada'),
-                        selected: false,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(160)),
-                      ),
-                      ChoiceChip(
-                        label: Text('Camping'),
-                        selected: false,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(160)),
-                      ),
-                      ChoiceChip(
-                        label: Text('Praia'),
-                        selected: false,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(160)),
-                      )
-
-
+                      _buildCard(
+                          'Trilha da Praia Vermelha',
+                          'Penha - SC',
+                          'https://s2.wklcdn.com/image_34/1040648/16409274/10290716Master.jpg'),
+                      _buildCard(
+                          'Pico da Teta',
+                          'Camboriú - SC',
+                          'https://media-cdn.tripadvisor.com/media/photo-s/15/21/40/ae/o-formato-da-rocha-que.jpg'),
                     ],
                   ),
-                )
+                ),
+                SizedBox(height: 16),
+                const Text(
+                  'Para você',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black87,
+                      decoration: TextDecoration.none),
+                ),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Wrap(
+                    spacing: 8,
+                    children: [
+                      _buildCard(
+                          'Piscinas Naturais da Barra da Lagoa',
+                          'Florianópolis - SC',
+                          'https://tudosobretrilhas.com.br/wp-content/uploads/2019/05/piscinas-naturais-barra-da-lagoa.jpg'),
+                      _buildCard(
+                          'Cachoeira da Fumaça',
+                          'Chapada Diamantina - BA',
+                          'https://chapadapasseios.com.br/wp-content/uploads/2023/04/chapada-passeios-chapada-diamantina-ba-4.jpg.webp'),
+                    ],
+                  ),
+                ),
               ],
-            )
-          ],
+            ),
+          ),
         ),
       ),
     );
   }
-}
 
-String _getLabel(int index) {
-  switch (index) {
-    case 0:
-      return 'Bike';
-    case 1:
-      return 'Car';
-    case 2:
-      return 'Bus';
-    case 3:
-      return 'Train';
-    case 4:
-      return 'Plane';
-    default:
-      return '';
+  Widget _buildChoiceChip(String label) {
+    return ChoiceChip(
+      label: Text(label),
+      selected: false,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(160),
+      ),
+    );
+  }
+
+  Widget _buildCard(String title, String subtitle, String imgUrl) {
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15),
+      ),
+      elevation: 5,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Stack(
+            children: [
+              ClipRRect(
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(15),
+                  topRight: Radius.circular(15),
+                ),
+                child: Image.network(
+                  imgUrl,
+                  width: 320,
+                  height: 170,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              Positioned(
+                top: 10,
+                right: 10,
+                child: IconButton(
+                  color: Colors.red,
+                  icon: const Icon(Icons.favorite),
+                  onPressed: () {},
+                ),
+              ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 4),
+                Text(
+                  subtitle,
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.grey[600],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
