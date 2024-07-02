@@ -1,3 +1,4 @@
+import 'package:bootz_test/screens/TrailScreen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -107,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 SizedBox(height: 16),
                 const Text(
-                  'Para você',
+                  'Conheça novos lugares',
                   textAlign: TextAlign.left,
                   style: TextStyle(
                       fontSize: 20,
@@ -150,63 +151,73 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildCard(String title, String subtitle, String imgUrl) {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15),
-      ),
-      elevation: 5,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Stack(
-            children: [
-              ClipRRect(
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(15),
-                  topRight: Radius.circular(15),
-                ),
-                child: Image.network(
-                  imgUrl,
-                  width: 320,
-                  height: 170,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              Positioned(
-                top: 10,
-                right: 10,
-                child: IconButton(
-                  color: Colors.red,
-                  icon: const Icon(Icons.favorite),
-                  onPressed: () {},
-                ),
-              ),
-            ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => TrailScreen(title: title, subtitle: subtitle, imageUrl: imgUrl),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+        );
+      },
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+        elevation: 5,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Stack(
               children: [
-                Text(
-                  title,
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+                ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(15),
+                    topRight: Radius.circular(15),
+                  ),
+                  child: Image.network(
+                    imgUrl,
+                    width: 320,
+                    height: 170,
+                    fit: BoxFit.cover,
                   ),
                 ),
-                SizedBox(height: 4),
-                Text(
-                  subtitle,
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.grey[600],
+                Positioned(
+                  top: 10,
+                  right: 10,
+                  child: IconButton(
+                    color: Colors.red,
+                    icon: const Icon(Icons.favorite),
+                    onPressed: () {},
                   ),
                 ),
               ],
             ),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 4),
+                  Text(
+                    subtitle,
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey[600],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

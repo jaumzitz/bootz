@@ -1,4 +1,4 @@
-import 'package:bootz_test/screens/LoginPageScreen.dart';
+import 'package:bootz_test/screens/LoginScreen.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingScreen extends StatelessWidget {
@@ -62,7 +62,7 @@ class OnboardingScreen extends StatelessWidget {
                   ElevatedButton(
                     onPressed: () {
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => LoginPage()));
+                          MaterialPageRoute(builder: (context) => LoginScreen()));
                     },
                     style: const ButtonStyle(
                         fixedSize: MaterialStatePropertyAll(Size(400, 56)),
