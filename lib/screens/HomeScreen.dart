@@ -12,7 +12,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
-        bottomNavigationBar: PreferredSize(
+        bottomNavigationBar: const PreferredSize(
           preferredSize: Size.fromHeight(2.0),
           child: TabBar(
             tabs: [
@@ -27,13 +27,16 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         appBar: AppBar(
-          toolbarHeight: 120,
+          automaticallyImplyLeading: false,
+          toolbarHeight: 150,
+
           title: Column(
 
             children: [
               Row(
 
                 children: [
+
                   Expanded(
                     child: TextField(
                       decoration: InputDecoration(
@@ -151,6 +154,10 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildCard(String title, String subtitle, String imgUrl) {
+
+    Icon likeBtn = Icon(Icons.favorite);
+    Color likeBtnColor = Colors.red;
+
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -186,8 +193,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   top: 10,
                   right: 10,
                   child: IconButton(
-                    color: Colors.red,
-                    icon: const Icon(Icons.favorite),
+                    // color: Colors.red,
+                    // icon: const Icon(Icons.favorite),
+                    icon: likeBtn,
+                    color: likeBtnColor,
                     onPressed: () {},
                   ),
                 ),
