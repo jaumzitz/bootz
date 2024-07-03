@@ -1,22 +1,12 @@
-# bootz_test
+# bootz
 
-This is Bootz.
+Bootz é um app/comunidade para amantes de trilhas.
 
-Bootz is an mobile application for trailling comunnity. Bootz is also my graduation project.
+Seu objetivo é conectar pessoas com esse interesse em comum. Dar a elas um local onde possam compartilhar suas experiências e interagir com a comunidade.
 
-Currently in development.
 
-Updates coming soon.
+## Projeto Integrador 2
 
-## Getting Started
+- Desenvolvedor: Joao Victor Fiorini de Souza
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+UNIVERSIDADE DO VALR DO ITAJAÍ
