@@ -20,6 +20,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
     DropdownMenuEntry(value: 'RS', label: 'RS'),
   ];
 
+  final List<DropdownMenuEntry> cities = [
+    DropdownMenuEntry(value: 'Itajaí', label: 'Itajaí'),
+    DropdownMenuEntry(value: 'Balneário Camboriú', label: 'Balneário Camboriú'),
+    DropdownMenuEntry(value: 'Florianópolis', label: 'Florianópolis'),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -127,7 +133,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   decoration: TextDecoration.none),
                             ),
                             DropdownMenu(
-                              dropdownMenuEntries: ufs,
+                              dropdownMenuEntries: cities,
                               width: 180,
                               inputDecorationTheme: InputDecorationTheme(
                                   border: OutlineInputBorder(
